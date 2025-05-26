@@ -30,7 +30,7 @@ const AuthPage = () => {
               animate={{ y: 0, opacity: 1}}
               transition={{delay: 0.1}}
             >
-              <img  alt="UniForum Logo" className="mx-auto h-16 w-auto mb-4" src="https://images.unsplash.com/photo-1643101450344-f1f3dcde2411" />
+              <img  alt="UniForum Logo" className="mx-auto h-16 w-auto mb-4" src="https://i.imgur.com/LQZWi1L.jpeg" />
               <CardTitle className="text-3xl font-bold uniforum-text-gradient">
                 UniForum Lasallista
               </CardTitle>
