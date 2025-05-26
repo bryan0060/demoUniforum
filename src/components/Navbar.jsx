@@ -23,7 +23,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <img  alt="UniForum Mini Logo" className="h-8 w-auto" src="https://images.unsplash.com/photo-1643101450344-f1f3dcde2411" />
+          <img  alt="UniForum Mini Logo" className="h-10 w-auto" src="https://i.imgur.com/LQZWi1L.jpeg" />
           <span className="text-xl font-bold uniforum-text-gradient">UniForum</span>
         </Link>
         
