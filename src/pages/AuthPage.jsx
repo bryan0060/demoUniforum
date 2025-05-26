@@ -30,9 +30,9 @@ const AuthPage = () => {
               animate={{ y: 0, opacity: 1}}
               transition={{delay: 0.1}}
             >
-              <img  alt="UniForum Logo" className="mx-auto h-24 w-auto mb-4" src="https://i.imgur.com/LQZWi1L.jpeg" />
+              <img  alt="UniForum Logo" className="mx-auto h-28 w-auto mb-4" src="https://i.imgur.com/LQZWi1L.jpeg" />
               <CardTitle className="text-3xl font-bold uniforum-text-gradient">
-                UniForum Lasallista
+                UniForum Unilasallista
               </CardTitle>
               <CardDescription className="text-lg mt-1">
                 {activeTab === 'login' ? 'Inicia sesión para continuar' : 'Crea tu cuenta institucional'}
