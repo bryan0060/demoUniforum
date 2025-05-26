@@ -14,7 +14,7 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4 text-center">
         <div className="mb-4">
-          <img  alt="UniForum Logo Footer" className="mx-auto h-10 w-auto" src="https://i.imgur.com/LQZWi1L.jpeg" />
+          <img  alt="UniForum Logo Footer" className="mx-auto h-10 w-auto" src="https://maps.google.com/maps?q=Carrera%2051%20N%C2%BA118Sur%20-%2057%2C%20Caldas%2C%20Antioquia&t=m&z=15&output=embed&iwloc=near" />
         </div>
         <p className="text-sm">
           &copy; {currentYear} UniForum - Corporación Universitaria Lasallista. Todos los derechos reservados.
