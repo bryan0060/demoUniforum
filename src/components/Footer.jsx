@@ -4,8 +4,7 @@ import { motion } from 'framer-motion';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const mapEmbedUrl = "https://maps.google.com/maps?q=Carrera%2051%20N%C2%BA118Sur%20-%2057%2C%20Caldas%2C%20Antioquia&t=m&z=15&output=embed&iwloc=near";
-
+  
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -15,19 +14,7 @@ const Footer = () => {
     >
       <div className="container mx-auto px-4 text-center">
         {/* Aquí es donde se coloca el iframe del mapa */}
-        <div className="mb-4">
-          <iframe
-            src={mapEmbedUrl}
-            width="100%" // O ajusta a un valor específico como "600"
-            height="250" // O ajusta a un valor específico como "450"
-            style={{ border: 0, borderRadius: '8px' }} // Estilos y bordes redondeados
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Ubicación de UniForum en Google Maps" // Título descriptivo para accesibilidad
-          ></iframe>
-        </div>
-
+        
         <p className="text-sm">
           © {currentYear} UniForum - Corporación Universitaria Lasallista. Todos los derechos reservados.
         </p>
