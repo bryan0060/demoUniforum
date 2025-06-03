@@ -1,14 +1,15 @@
 
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import AuthForm from '@/components/AuthForm';
 import { useAuth } from '@/contexts/AuthContext';
 
-const AuthPage = () => {
-  const [activeTab, setActiveTab] = useState('login');
+const AuthPage = () => { 
+  const [searchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(searchParams.get('mode') || 'login');
   const { user } = useAuth();
 
   if (user) {
@@ -35,7 +36,7 @@ const AuthPage = () => {
                 UniForum Unilasallista
               </CardTitle>
               <CardDescription className="text-lg mt-1">
-                {activeTab === 'login' ? 'Inicia sesión para continuar' : 'Crea tu cuenta institucional'}
+                {activeTab === 'login' ? 'Inicia sesión para continuar' : 'Crea tu cuenta institucional para UniForum'}
               </CardDescription>
             </motion.div>
           </CardHeader>

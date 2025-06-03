@@ -40,12 +40,7 @@ const Navbar = () => {
                 <span className="hidden md:inline">Salir</span>
               </Button>
             </>
-          ) : (
-            <>
-              <Button variant="ghost" onClick={() => navigate('/auth')}>Iniciar Sesión</Button>
-              <Button onClick={() => navigate('/auth')}>Registrarse</Button>
-            </>
-          )}
+          ) : null}
         </div>
       </div>
     </motion.nav>
