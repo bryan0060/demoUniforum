@@ -14,6 +14,7 @@ const CreatePostPage = () => {
   const [subject, setSubject] = useState('');
   const [semester, setSemester] = useState('');
   const [file, setFile] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]);
   const [postType, setPostType] = useState('discussion'); // 'discussion' or 'document'
   const { toast } = useToast();
 
@@ -45,6 +46,34 @@ const CreatePostPage = () => {
     }
   };
 
+  const handleImageChange = (e) => {
+    if (e.target.files) {
+      const filesArray = Array.from(e.target.files);
+      const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+      const validImages = filesArray.filter(file => allowedTypes.includes(file.type)); // Keep only valid types for processing
+      const imagePreviews = [];
+      
+      if (validImages.length !== filesArray.length) {
+         toast({
+          variant: "destructive",
+          title: "Tipos de archivo no permitidos",
+          description: "Solo se permiten archivos de imagen JPG, PNG, GIF, y WEBP.",
+        });
+      }
+
+      validImages.forEach(file => {
+        const reader = new FileReader();
+        reader.onloadend = () => {
+          imagePreviews.push({ name: file.name, dataUrl: reader.result });
+          if (imagePreviews.length === validImages.length) {
+            setSelectedImages(imagePreviews);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim()) {
@@ -64,7 +93,7 @@ const CreatePostPage = () => {
       return;
     }
 
-    console.log({ title, content, subject, semester, file, postType });
+    console.log({ title, content, subject, semester, file, selectedImages, postType });
     toast({ title: "Éxito", description: `Tu ${postType === 'discussion' ? 'publicación' : 'documento'} ha sido ${postType === 'discussion' ? 'creado' : 'subido'} (simulado).` });
     
     setTitle('');
@@ -73,6 +102,10 @@ const CreatePostPage = () => {
     setSemester('');
     setFile(null);
     if(document.getElementById('file-upload')) {
+      document.getElementById('file-upload').value = null;
+    }
+    setSelectedImages([]);
+    if(document.getElementById('image-upload')) {
       document.getElementById('file-upload').value = null;
     }
   };
@@ -127,6 +160,20 @@ const CreatePostPage = () => {
                 {file && <p className="text-sm text-muted-foreground mt-1">Archivo seleccionado: {file.name}</p>}
               </div>
             )}
+
+            {/* Nuevo campo para adjuntar imágenes */}
+            <div>
+              <Label htmlFor="image-upload">Adjuntar Fotos (Opcional)</Label>
+              <Input id="image-upload" type="file" multiple onChange={handleImageChange} accept=".jpg,.jpeg,.png,.gif,.webp" />
+              {/* Mostrar previsualizaciones de imágenes */}
+              <div className="mt-2 flex flex-wrap gap-2">
+                {selectedImages.map((img) => (
+                  <div key={img.name} className="relative">
+                    <img src={img.dataUrl} alt={img.name} className="w-24 h-24 object-cover rounded-md shadow-md" />
+                  </div>
+                ))}
+              </div>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -138,7 +185,7 @@ const CreatePostPage = () => {
                 <Input id="semester" type="number" value={semester} onChange={(e) => setSemester(e.target.value)} placeholder="Ej: 1" min="1" max="10" required />
               </div>
             </div>
-
+            
             <Button type="submit" className="w-full">
               <Send className="mr-2 h-4 w-4" /> {postType === 'discussion' ? 'Publicar Discusión' : 'Subir Documento'}
             </Button>

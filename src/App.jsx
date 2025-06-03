@@ -8,6 +8,7 @@ import ExplorePage from '@/pages/ExplorePage';
 import ForumPage from '@/pages/ForumPage';
 import CreatePostPage from '@/pages/CreatePostPage';
 import ProfilePage from '@/pages/ProfilePage'; 
+import PostDetailPage from '@/pages/PostDetailPage';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -65,6 +66,12 @@ function AppContent() {
                 <ProfilePage />
               </ProtectedRoute>
             } 
+          />
+          <Route
+            path="/posts/:postId"
+            element={
+              <ProtectedRoute><PostDetailPage /></ProtectedRoute>
+            }
           />
           {/* Add more routes here as UniForum grows */}
           {/* Example:

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Filter, Search, FileText, BookCopy, Presentation } from 'lucide-react';
 
@@ -60,7 +61,9 @@ const ExplorePage = () => {
                 </p>
               </CardContent>
               <CardFooter>
-                <Button variant="secondary" className="w-full">Ver Detalles</Button>
+                <Link to={`/posts/${item.id}`} className="w-full">
+                  <Button variant="secondary" className="w-full">Ver Detalles</Button>
+                </Link>
               </CardFooter>
             </Card>
           </motion.div>
