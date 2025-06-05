@@ -89,7 +89,7 @@ Asegúrate de tener instalados:
 1.  **Clona el repositorio:**
 
     ```bash
-    git clone [https://github.com/bryan0060/demoUniforum.git](https://github.com/bryan0060/demoUniforum.git)
+    git clone (https://github.com/bryan0060/demoUniforum.git)
     cd demoUniforum
     ```
 
