@@ -107,7 +107,7 @@ El proyecto está desplegado en Vercel y se puede acceder a él a través del si
 
 https://demo-uniforum.vercel.app
 📱 Captura del Resultado
-&lt;div align="center">
+<div align="center">
 
 🖥️ Vista Principal
 !
