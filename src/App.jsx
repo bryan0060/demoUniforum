@@ -7,6 +7,7 @@ import AuthPage from '@/pages/AuthPage';
 import ExplorePage from '@/pages/ExplorePage';
 import ForumPage from '@/pages/ForumPage';
 import CreatePostPage from '@/pages/CreatePostPage';
+import ForumDetailPage from '@/pages/ForumDetailPage';
 import ProfilePage from '@/pages/ProfilePage'; 
 import PostDetailPage from '@/pages/PostDetailPage';
 import Navbar from '@/components/Navbar';
@@ -71,6 +72,14 @@ function AppContent() {
             path="/posts/:postId"
             element={
               <ProtectedRoute><PostDetailPage /></ProtectedRoute>
+            }
+          />
+          <Route
+            path="/forums/:forumId"
+            element={
+              <ProtectedRoute>
+                <ForumDetailPage />
+              </ProtectedRoute>
             }
           />
           {/* Add more routes here as UniForum grows */}

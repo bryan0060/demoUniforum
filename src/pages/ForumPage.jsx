@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { MessageSquare, Users, ThumbsUp, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-const mockForums = [
+export const mockForums = [
   { id: 1, title: 'Discusión General sobre Cálculo Diferencial', subject: 'Cálculo I', posts: 25, members: 150, lastActivity: 'Hace 2 horas' },
   { id: 2, title: 'Ayuda con el Proyecto Final de POO', subject: 'Programación Orientada a Objetos', posts: 12, members: 80, lastActivity: 'Hace 5 horas' },
   { id: 3, title: 'Consultas sobre Algoritmos de Ordenamiento', subject: 'Estructuras de Datos', posts: 30, members: 120, lastActivity: 'Ayer' },
@@ -62,7 +62,7 @@ const ForumPage = () => {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button variant="outline" className="w-full md:w-auto">Entrar al Foro</Button>
+                <Button variant="outline" className="w-full md:w-auto" onClick={() => navigate(`/forums/${forum.id}`)}>Entrar al Foro</Button>
               </CardFooter>
             </Card>
           </motion.div>
